@@ -1,0 +1,30 @@
+ //Solicitar la cantidad de empleados
+        String input = JOptionPane.showInputDialog("Ingrese la cantidad de empleados:");
+        
+        //iniciar variables
+        int cantidadEmpleados = Integer.parseInt(input);
+        double totalSEM = 0;
+        double totalIVM = 0;
+        
+        //Solicitar el salario y calcularlos
+        for(int i = 0; i < cantidadEmpleados; i++){
+            String salarioInput = JOptionPane.showInputDialog("Ingrese el salario"+ (i+1)+":");
+            double salario = Double.parseDouble(salarioInput);
+            
+            //calculo de SEM y IVM y sumar el total
+            double SEM = salario* 0.0925;
+            double IVM = salario* 0.0508;
+            totalSEM += SEM;
+            totalIVM += IVM;
+            
+         
+        }
+        
+        //Hacer el calculo del monto total
+        double totalAPagar = totalSEM+totalIVM;
+        
+        // Imprimir el resultado
+        String resultado = String.format("La empresa debera abonar a la CCSS el monto de %.2f por concepto de SEM y IVM", totalAPagar);
+        JOptionPane.showMessageDialog(null, resultado);
+    }
+}
